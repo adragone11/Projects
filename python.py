@@ -1,6 +1,6 @@
 import random
 
-def roll():
+def roll(): //rolling the dice function
     min_value = 1
     max_value = 6
     roll = random.randint(min_value, max_value)
@@ -10,7 +10,7 @@ def roll():
 rolled = roll()
 
 
-
+//asks how many players there are
 while True:
     players = input("How many players are there? (2-4): " )
     if players.isdigit():
@@ -23,10 +23,12 @@ while True:
 
 print("Number of players =", players)
 
-
+//max score of the game
 max_score = 50
 player_scores = [0 for _ in range(players)]
 
+
+//determines score of dice roll, game function essentially
 while max(player_scores) < max_score:
     for player_index in range(players):
         print("\nPlayer", player_index + 1, "has started!\n")
@@ -52,6 +54,7 @@ while max(player_scores) < max_score:
         player_scores[player_index] += current_score
         print("Your total score is", player_scores[player_index])
 
+//winner praise
 max_score = max(player_scores)
 winning_idx = player_scores.index(max_score)
 print("Player number", winning_idx + 1,
